@@ -1,0 +1,9 @@
+Summary:
+
+For one-to-many, many-to-one
+-In unidirectional relationship, only add annotations to the Owner (one for one-to-many, many for many-to-one). In one-to-many @JoinColumns(@JoinColumn(name="",referencedColumn="")) needs to be used. In many-to-one, use @JoinColumn(name="").
+-In Bidirectional relationship, as many is usually the owner, do it as said above, and add @OneToMany(mappedBy="") on one side.
+
+For many-to-many
+-In unidirectional relationship, on the owner's side use @JoinTable(name="",joinColumns=@JoinColumn(),inverseJoinColumn=@JoinColumn()). No need to add anything on non-owner's side;
+-In Bidirectional relationship, just add @ManyToMany(mappedBy="").
